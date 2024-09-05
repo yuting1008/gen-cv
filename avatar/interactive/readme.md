@@ -1,36 +1,47 @@
 # Shop Easily Using Talking Avatar - Trailblazers Outdoor Gear
-
 <img src="./demo-screenshot.png" alt="drawing" style="width:1200px;"/>
 
 This solution accelerator can be used to deploy an application that offers an interactive shopping experience using a talking avatar. It uses Azure OpenAI combined with data stored on Cognitive Search and Azure SQL to generate answers.
+</br> 這個解決方案加速器可以部署一個應用程式，該應用程式利用會說話的虛擬人偶來提供互動式購物體驗。它結合了 Azure OpenAI、認知搜索以及存儲在 Azure SQL 上的數據來生成答案
 
 ## Getting started
 
 1. Start by forking this repo 
-
+</br> 首先 fork 這個倉庫
 2. Create the following Azure resources:
+</br> 建立以下 Azure 資源：
     - Azure OpenAI Service with these models deployed
+    </br> 部署了這些模型的 Azure OpenAI 服務
       - gpt-35-turbo (note: **version 0613 or higher is required**)
         - Note: You could use gpt-4o to improve the quality
+         </br> 注意：您可以使用 gpt-4o 來提高品質
       - text-embedding-ada-002 (version 2)
    - Azure AI Search with default settings
+     </br> 使用預設設置的 Azure AI 搜索
    - Azure SQL with the following settings
+     </br> 設置 Azure SQL
      - Authentication: SQL and Microsoft Entra authentication enabled
+       </br> 身份驗證：已啟用 SQL 和 Microsoft Entra 身份驗證
      - Networking: Allow Azure services and resources to access this server enabled
+       </br> 網路：允許 Azure 服務和資源存取此伺服器已啟用
    - Azure Speech Service
      - Note: Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
+       </br> 注意：Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
      - Note: Plan must be S0
+       </br> 注意：計劃必須為 S0
    - Azure AI services multi-service account
+     </br> Azure AI 服務多服務帳戶
    - Azure Blob Storage account
+     </br> Azure Blob 儲存帳戶
 
-3. Upload the images in the `product-images` directory to a blob container in the Storage Account. Generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
-
+4. Upload the images in the `product-images` directory to a blob container in the Storage Account. Generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
+</br> 將 `product-images` 目錄中的圖像上傳到存儲帳戶中的 blob 容器。為 blob 儲存容器生成 SAS URL。根據應用程式的生命週期規劃設定到期時間</br> 
     <img src="./SAS-dialog.png" alt="drawing" style="width:400px;"/>
 
-4. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
-
-5. Create a file named `local.settings.json` in the `api` directory of the repository. Make sure to add the following variables to `local.settings.json`. The `AzureWebJobsStorage` variable can be left empty for development purposes.
-
+5. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
+</br> 運行 `create-index-and-database.ipynb` 筆記本中的儲存格，將產品數據上傳到 Azure AI 搜索和 Azure SQL 資料庫。
+6. Create a file named `local.settings.json` in the `api` directory of the repository. Make sure to add the following variables to `local.settings.json`. The `AzureWebJobsStorage` variable can be left empty for development purposes.
+</br> 在倉庫的 api 目錄中創建一個名為 `local.settings.json` 的檔。確保將以下變數添加到`local.settings.json`。出於開發目的，可以將 `AzureWebJobsStorage` 變數留空。
 ```
 {
   "IsEncrypted": false,
@@ -59,6 +70,7 @@ This solution accelerator can be used to deploy an application that offers an in
 ```
 - Note:
   - For AzureWebJobsStorage, leave empty
+  </br> 對於 AzureWebJobsStorage，請留空
   - For AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, AZURE_OPENAI_CHAT_DEPLOYMENT, please reference here
     - ![image](https://github.com/user-attachments/assets/8ef8898b-c535-45d6-a63b-84df1256f2f9)
   - For AZURE_SEARCH_ENDPOIN, AZURE_SEARCH_API_KEY, please reference here
@@ -66,7 +78,9 @@ This solution accelerator can be used to deploy an application that offers an in
     - ![image](https://github.com/user-attachments/assets/7079805a-9d63-4ff0-a6c9-ee12a51b97ad)
   - For AZURE_SPEECH_REGION, AZURE_SPEECH_API_KEY
      - Note: Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
+     </br> 注意：Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
      - Note: Plan must be S0
+     </br> 注意：計劃必須為 S0
     - ![image](https://github.com/user-attachments/assets/e0c87363-a54f-45e3-bf53-22279c44fc7f)
   - For TEXT_ANALYTICS_ENDPOINT and TEXT_ANALYTICS_KEY, please reference here
     - ![image](https://github.com/user-attachments/assets/c56aa1de-c0a0-420a-998e-5ea18fbae2c7)
@@ -76,23 +90,27 @@ This solution accelerator can be used to deploy an application that offers an in
     - ![image](https://github.com/user-attachments/assets/4ad1c1b3-a349-463f-894a-6a5d8d987155)
 6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that.
    Also change the code in line 277 of `main.js` in the `src/js` folder.
+   </br> 如果你在與 `westeurope` 不同的區域中使用 Azure 語音服務實例，請更新 `src/js` 資料夾中的 `main.js` 的第 17 行以反映這一點。還要更改 `src/js` 資料夾中 `main.js` 的第 277 行中的程式碼
 7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks.
-
+</br> 此應用程式可以使用 Azure Static Web Apps 進行部署。請參閱此快速入門以瞭解更多資訊。此應用程式未使用前端框架</br> 
     If you are using **Visual Studio Code**, you can execute the following steps:
+     </br> 如果您使用的是 Visual Studio Code，則可以執行以下步驟
     - Install  the Azure Static Web Apps and Azure Functions extensions
+      </br> 安裝 Azure Static Web Apps 和 Azure Functions 擴展
     - Right-click on Static Web Apps extension folder, select **Create Static Web App ... (Advanced)** with the following parameters:  
-
-      | Parameter                 | Description                                                      |
+      </br> 右鍵按兩下 Static Web Apps 擴展資料夾，選擇“創建 Static Web 應用...”（高級）使用以下參數
+      | Parameter  參數            | Description 描述                                                 |
       |---------------------------|------------------------------------------------------------------|
-      | Resource group            | Select an existing resource group or create a new one            |
+      | Resource group            | Select an existing resource group or create a new one 選擇現有資源組或創建新資源組           |
       | Name                      | Choose a name, e.g., avatar-app                                  |
       | Pricing option            | Standard                                                         |
-      | Region                    | Select the same or a nearby region as for the above resources    |
+      | Region                    | Select the same or a nearby region as for the above resources 選擇與上述資源相同或附近的區域   |
       | Framework                 | Custom                                                           |
       | Application code location | avatar/interactive/src                                           |
       | Build output location     | (Leave blank)                                                    |      
     - Note: It will create an workflow to deploy from GitHub Action to Static Web App without config yet.
       My sample workflow config paste here for your reference:
+      </br> 注意：它將創建一個工作流，無需配置即可從 GitHub Action 部署到 Static Web App。我的範例工作流配置粘貼在此處供您參考
 ```
 name: Azure Static Web Apps CI/CD
 
@@ -141,20 +159,23 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_ISLAND_0683BD41E }}
           action: "close"
 ```
-  - My sample running result
+  - My sample running result 我的運行結果
     - ![image](https://github.com/user-attachments/assets/90c76ce1-fac8-4dd7-86fa-32d367bee575)
 8. In the VSCode Static Web Apps extension, navigate to **Application Settings** of your app and right-click **Upload Local Settings**. This will populate the settings from `local.settings.json` to the web app.
+  </br> 在 VSCode 的 Static Web Apps 擴展中，前往「應用程式設置」，然後在「上傳本地設置」上點擊右鍵兩次。這會將 `local.settings.json` 文件中的設置上傳至 Web 應用程式
 - Once you upload Local Settings from VS Code, you will see Static Web Apps Config
+  </br> 從 VS Code 上傳本地設置後，您將看到 Static Web Apps Config
   - ![image](https://github.com/user-attachments/assets/e0c3190a-d1eb-4f7d-8397-fbeae08bf372)
   - ![image](https://github.com/user-attachments/assets/8bfdfc69-b134-49fd-aa41-6cdb59fe2175)
 
 8. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app
-
-## Notes on running the solution locally
-
+   </br> 在 VSCode Static Web Apps 擴展中，右鍵按兩下應用名稱，然後選擇「瀏覽網站」以使用該應用
+## Notes on running the solution locally 在本地運行解決方案的注意事項
 - ODBC Driver 17 for SQL Server is required to run the solution locally.
+</br> 需要 ODBC Driver 17 for SQL Server 才能在本地運行解決方案
   - Note: Install here: https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16#download-for-windows
 - Note: My running environment is python 3.11, please switch your python virtual environment
+</br> 注意：我的運行環境是 python 3.11，請切換你的 python 虛擬環境
 ```
 # pip install virtualenv
 $ virtualenv -p python3.11 myenv
@@ -163,18 +184,24 @@ $ python --version
 $ pip install -r requirements.txt
 ```
 - Use the Static Web Apps CLI to run the solution. After navigating in the terminal to `avatar/interactive`, the following command can be used to run the solution: `swa start src --api-location api`.
+</br> 使用 Static Web Apps CLI 執行解決方案。在終端中導航到 `avatar/interactive` 後，可以使用以下命令運行解決方案： `swa start src --api-location api`
   - Note: Install by below command
+  </br> 注意：通過以下命令安裝
 ```
 npm install -g @azure/static-web-apps-cli
 swa --version
 ```
 - The solution has been tested with Node version 18.0.0.
+  </br> 該解決方案已使用 Node 版本 18.0.0 進行了測試
   - Note: Sample console output
+  </br> 注意：控制台輸出範例
     - ![image](https://github.com/user-attachments/assets/c72def24-87ff-4c47-bfdb-b497eccf017c)
 ## Hints on debugging
 
 - The login screen is currently non-functional. If you click on 'login' without entering any information, you will be redirected to the main page.
+  </br> 登錄螢幕當前無法正常工作。如果您點擊「登錄」而不輸入任何資訊，您將被重定向到主頁
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
+  </br> 如果頭像未在主頁上載入，請在主頁打開的情況下刷新網頁。這將顯示錯誤消息
   - Debug Panel
     ![image](https://github.com/user-attachments/assets/f7cd0370-19b5-4180-acbd-62c63799d961)
   - Debug Console
