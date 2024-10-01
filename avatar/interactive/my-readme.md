@@ -206,3 +206,6 @@ This solution accelerator can be used to deploy an application that offers an in
 - The login screen is currently non-functional. If you click on 'login' without entering any information, you will be redirected to the main page.
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
 - When you see an error message saying *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)*, you may try cleaning your cache to fix this issue.
+- You can open console to further digest your bugs.
+  <img src="./img/22-open-debug-panel.png" alt="drawing" style="width:400px;"/>
+  <img src="./img/23-debug-panel.png" alt="drawing" style="width:400px;"/>
