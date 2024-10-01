@@ -181,13 +181,25 @@ This solution accelerator can be used to deploy an application that offers an in
 
 - ODBC Driver 17 for SQL Server is required to run the solution locally.
    - You can install it via this [link](https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?).
-- Use the Static Web Apps CLI to run the solution. After navigating in the terminal to `avatar/interactive`, the following command can be used to run the solution: `swa start src --api-location api`.
-  - You can install the Static Web Apps CLI via npm. Details can be found [here](https://azure.github.io/static-web-apps-cli/docs/use/install/).
-    ```
-    npm install -g @azure/static-web-apps-cli
-    swa --version
-    ```
 - The solution has been tested with Node version 18.0.0.
+- To run the solution locally, please follow the instructions below:
+  1. We use Use the Static Web Apps CLI to run the solution. You can install it via npm. Details can be found [here](https://azure.github.io/static-web-apps-cli/docs/use/install/).
+      ```
+      npm install -g @azure/static-web-apps-cli
+      swa --version
+      ```
+  2. Create your Python environment and install the necessary dependencies. For our development, we utilized Conda and the running environment is Python 3.11. You can do the same with these commands:
+      ```bash
+      conda create -n avatar python=3.11
+      conda activate avatar
+      pip install -r avatar\interactive\api\requirements.txt
+      ```
+  3. After navigating in the terminal to `avatar/interactive`, the following command can be used to run the solution. Once succeed, you will see the output on console.
+        ```bash
+        swa start src --api-location api
+        ```
+        <img src="./img/20-run-locally.png" alt="drawing" style="width:400px;"/>
+
 
 ## Hints on debugging
 
