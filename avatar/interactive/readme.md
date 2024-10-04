@@ -4,8 +4,20 @@
 This solution accelerator can be used to deploy an application that offers an interactive shopping experience using a talking avatar. It uses Azure OpenAI combined with data stored on Cognitive Search and Azure SQL to generate answers.
 </br> 這個解決方案加速器可以部署一個應用程式，該應用程式利用會說話的虛擬人偶來提供互動式購物體驗。它結合了 Azure OpenAI、認知搜索以及存儲在 Azure SQL 上的數據來生成答案。
 
-## Getting started
+### Table of Contents
 
+1. **[Getting Started](#getting-started)**
+    - [Step 1. Prepare Environments](#step-1-prepare-environments)
+    - [Step 2. Set Up Configurations and Upload Data](#step-2-set-up-configurations-and-upload-data)
+    - [Step 3. Deploy Static Web App](#step-3-deploy-static-web-app)
+
+1. **[Notes on Running the Solution Locally](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
+
+1. **[Hints on Debugging](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model-in-azure-ai-studio)**
+
+## Getting Started
+
+### Step 1. Prepare Environments
 1. Start by forking this repo 
 </br> 首先 fork 這個倉庫
 2. Create the following Azure resources:
@@ -39,6 +51,7 @@ This solution accelerator can be used to deploy an application that offers an in
    - Azure Blob Storage account
      </br> Azure Blob 儲存帳戶
 
+### Step 2. Set Up Configurations and Upload Data
 3. Upload the images in the `product-images` directory to a blob container in the Storage Account. Right click the blob container to generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
 </br> 將 `product-images` 目錄中的圖像上傳到存儲帳戶中的 blob 容器。右擊 blob 儲存容器為 blob 儲存容器生成 SAS URL。根據應用程式的生命週期規劃設定到期時間。</br>
     <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/> \
@@ -105,6 +118,7 @@ This solution accelerator can be used to deploy an application that offers an in
      </br> 當您嘗試連接到 SQL Server 時，如果收到錯誤消息顯示 *Cannot open server 'YOUR_SERVER' requested by the login. Client with IP address 'YOUR_IP_ADDRESS' is not allowed to access the server*，請將您目前的 IP 位置新增到 SQL Server。
      <img src="./img/14-add-ip-address.png" alt="drawing" style="width:600px;"/>
 
+### Step 3. Deploy Static Web App
 6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that.
    </br> 如果你在與 `westeurope` 不同的區域中使用 Azure 語音服務實例，請更新 `src/js` 資料夾中的 `main.js` 的第 17 行以反映這一點。
    <img src="./img/18-change-region.png" alt="drawing" style="width:600px;"/>
@@ -187,7 +201,7 @@ This solution accelerator can be used to deploy an application that offers an in
    </br> 在 VSCode Static Web Apps 擴展中，右鍵按兩下應用名稱，然後選擇「瀏覽網站」以使用此應用。
    <img src="./img/17-browse-site.png" alt="drawing" style="width:600px;"/>
    
-## Notes on running the solution locally 在本地運行解決方案的注意事項
+## Notes on Running the Solution Locally 在本地運行解決方案的注意事項
 - ODBC Driver 17 for SQL Server is required to run the solution locally. You can install it via this [link](https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16#version-17).
     </br> 需要 ODBC Driver 17 for SQL Server 才能在本地運行解決方案。您可以透過此連結安裝。
 - The solution has been tested with Node version 18.0.0.
@@ -216,7 +230,7 @@ This solution accelerator can be used to deploy an application that offers an in
     ```
     ![image](https://github.com/user-attachments/assets/c72def24-87ff-4c47-bfdb-b497eccf017c)
 
-## Hints on debugging
+## Hints on Debugging
 
 - The login screen is currently non-functional. If you click on 'login' without entering any information, you will be redirected to the main page.
   </br> 登錄螢幕目前無法正常工作。如果您點擊「登錄」而不輸入任何資訊，您將被重定向到主頁。
