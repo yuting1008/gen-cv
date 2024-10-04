@@ -18,15 +18,15 @@ This solution accelerator can be used to deploy an application that offers an in
 ## Getting Started
 
 ### Step 1. Prepare Environments
-1. Start by forking this repo 
-</br> 首先 fork 這個倉庫
+1. Start by forking this repo.
+</br> 首先 fork 這個倉庫。
 2. Create the following Azure resources:
 </br> 建立以下 Azure 資源：
     - Azure OpenAI Service with these models deployed
     </br> 部署了這些模型的 Azure OpenAI 服務
       - gpt-35-turbo (note: **version 0613 or higher is required**)
-        - Note: You could use gpt-4o to improve the quality
-         </br> 注意：您可以使用 gpt-4o 來提高品質
+        - You could use gpt-4o to improve the quality
+         </br> 您可以使用 gpt-4o 來提高品質
       - text-embedding-ada-002 (version 2)
    - Azure AI Search with default settings
      </br> 使用預設設置的 Azure AI 搜索
@@ -37,15 +37,16 @@ This solution accelerator can be used to deploy an application that offers an in
      - Networking: Allow Azure services and resources to access this server enabled
        </br> 網路：允許 Azure 服務和資源存取此伺服器已啟用
      - You can refer to the instructions below to create SQL Database and SQL Server:
+       </br> 您可以依照下列步驟建立符合條件的 SQL Database 和 SQL Server：
          <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:800px;"/> \
          <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:600px;"/> \
          <img src="./img/03-set-networking.png" alt="drawing" style="width:600px;"/>
      
    - Azure Speech Service
-     - Note: Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
-       </br> 注意：Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
-     - Note: Plan must be S0
-       </br> 注意：計劃必須為 S0
+     - Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
+       </br> Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
+     - Plan must be S0
+       </br> 計劃必須為 S0
    - Azure AI services multi-service account
      </br> Azure AI 服務多服務帳戶
    - Azure Blob Storage account
@@ -53,7 +54,7 @@ This solution accelerator can be used to deploy an application that offers an in
 
 ### Step 2. Set Up Configurations and Upload Data
 1. Upload the images in the `product-images` directory to a blob container in the Storage Account. Right click the blob container to generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
-</br> 將 `product-images` 目錄中的圖像上傳到存儲帳戶中的 blob 容器。右擊 blob 儲存容器為 blob 儲存容器生成 SAS URL。根據應用程式的生命週期規劃設定到期時間。</br>
+</br> 將 `product-images` 目錄中的圖像上傳到存儲帳戶中的 blob 容器。右鍵按下 blob 儲存容器為 blob 儲存容器生成 SAS URL。根據應用程式的生命週期規劃設定到期時間。</br>
     <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/> \
     <img src="./SAS-dialog.png" alt="drawing" style="width:400px;"/>
     
@@ -81,14 +82,12 @@ This solution accelerator can be used to deploy an application that offers an in
         "SQL_DB_SERVER": "XXX.database.windows.net",
         "SQL_DB_USER": "XXX",
         "SQL_DB_PASSWORD": "XXX",
-        "SQL_DB_NAME": "XXX",
-        "BING_KEY": "XXX",
-        "BING_SEARCH_URL": "XXX"
+        "SQL_DB_NAME": "XXX"
       }
     }
     ```
   - For ``AzureWebJobsStorage``, leave empty
-  </br> 對於 AzureWebJobsStorage，請留空
+  </br> 對於 AzureWebJobsStorage，請留空。
   - For ``AZURE_OPENAI_ENDPOINT``, ``AZURE_OPENAI_API_KEY``, and ``AZURE_OPENAI_CHAT_DEPLOYMENT``, please reference here
     ![image](https://github.com/user-attachments/assets/8ef8898b-c535-45d6-a63b-84df1256f2f9)
   - For ``AZURE_SEARCH_ENDPOINT`` and ``AZURE_SEARCH_API_KEY``, please reference here
@@ -96,16 +95,16 @@ This solution accelerator can be used to deploy an application that offers an in
     ![image](https://github.com/user-attachments/assets/7079805a-9d63-4ff0-a6c9-ee12a51b97ad)
   - For ``AZURE_SPEECH_REGION`` and ``AZURE_SPEECH_API_KEY``, please reference here
     ![image](https://github.com/user-attachments/assets/e0c87363-a54f-45e3-bf53-22279c44fc7f)
-     - Note: Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
-     </br> 注意：Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
-     - Note: Plan must be S0
-     </br> 注意：計劃必須為 S0
+     - Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
+     </br> Avatar 僅在以下區域可用：美國西部 2、西歐、東南亞、美國中南部、瑞典中部、北歐
+     - Plan must be S0
+     </br> 計劃必須為 S0
     
   - For ``TEXT_ANALYTICS_ENDPOINT`` and ``TEXT_ANALYTICS_KEY``, please reference here
     ![image](https://github.com/user-attachments/assets/c56aa1de-c0a0-420a-998e-5ea18fbae2c7)
   - For ``BLOB_SAS_URL``, please reference here
     ![image](https://github.com/user-attachments/assets/e8dd21ea-10fb-484a-9a19-6714004b5fe5)
-  - For ``SQL_DB_SERVER`` and ``SQL_DB_USER``, please reference here
+  - For ``SQL_DB_SERVER``, ``SQL_DB_NAME`` and ``SQL_DB_USER``, please reference here
     ![image](https://github.com/user-attachments/assets/4ad1c1b3-a349-463f-894a-6a5d8d987155)
 
 3. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
@@ -127,7 +126,7 @@ This solution accelerator can be used to deploy an application that offers an in
     - Install  the Azure Static Web Apps and Azure Functions extensions.
       </br> 安裝 Azure Static Web Apps 和 Azure Functions 擴展。
     - Open Azure extension, select your subscription, and right-click on Static Web Apps extension folder, select **Create Static Web App ... (Advanced)**
-      </br> 右鍵按兩下 Static Web Apps 擴展資料夾，選擇“創建 Static Web App...（進階）”。
+      </br> 右鍵按下 Static Web Apps 擴展資料夾，選擇“創建 Static Web App...（進階）”。
       <img src="./img/15-create-static-web-app.png" alt="drawing" style="width:600px;"/>
     - Create Static Web App with the following parameters:
       </br> 使用以下參數創建 Static Web App：
@@ -140,9 +139,9 @@ This solution accelerator can be used to deploy an application that offers an in
       | Framework                 | Custom                                                           |
       | Application code location | avatar/interactive/src                                           |
       | Build output location     | (Leave blank)                                                    |      
-    - Note: It will create an workflow to deploy from GitHub Action to Static Web App without config yet.
+    - It will create an workflow to deploy from GitHub Action to Static Web App without config yet.
       Here are my sample workflow config and my sample running result for your reference:
-      </br> 注意：它將創建一個工作流，無需配置即可從 GitHub Action 部署到 Static Web App。我的範例工作流配置與運行結果供您參考：
+      </br> 它將創建一個工作流，無需配置即可從 GitHub Action 部署到 Static Web App。我的範例工作流配置與運行結果供您參考：
         ```
         name: Azure Static Web Apps CI/CD
         
@@ -197,7 +196,7 @@ This solution accelerator can be used to deploy an application that offers an in
     ![image](https://github.com/user-attachments/assets/e0c3190a-d1eb-4f7d-8397-fbeae08bf372)
     ![image](https://github.com/user-attachments/assets/8bfdfc69-b134-49fd-aa41-6cdb59fe2175)
 
-4. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app
+4. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app.
    </br> 在 VSCode Static Web Apps 擴展中，右鍵按兩下應用名稱，然後選擇「瀏覽網站」以使用此應用。
    <img src="./img/17-browse-site.png" alt="drawing" style="width:600px;"/>
    
