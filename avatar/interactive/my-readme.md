@@ -34,8 +34,8 @@ This solution accelerator can be used to deploy an application that offers an in
 
 3. Upload the images in the `product-images` directory to a blob container in the Storage Account. Generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application. 
 
-    <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:400px;"/> \
-    <img src="./SAS-dialog.png" alt="drawing" style="width:400px;"/>
+    <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/> \
+    <img src="./SAS-dialog.png" alt="drawing" style="width:600px;"/>
 
 4. Create a file named `local.settings.json` in the `api` directory of the repository. Make sure to add the following variables to `local.settings.json`. The `AzureWebJobsStorage` variable can be left empty for development purposes.
     ```
@@ -69,44 +69,44 @@ This solution accelerator can be used to deploy an application that offers an in
    - For `AzureWebJobsStorage`, pleave leave empty.
 
    - For `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_CHAT_DEPLOYMENT`, `AZURE_OPENAI_API_VERSION`, the reference is as below: \
-      <img src="./img/05-openai-chat.png" alt="drawing" style="width:400px;"/> \
-      <img src="./img/06-openai-sample-code.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/05-openai-chat.png" alt="drawing" style="width:600px;"/> \
+      <img src="./img/06-openai-sample-code.png" alt="drawing" style="width:600px;"/>
 
    - For `AZURE_SEARCH_ENDPOINT`, `AZURE_SEARCH_API_KEY`, the reference is as below: \
-      <img src="./img/07-azure-search-key.png" alt="drawing" style="width:400px;"/> \
-      <img src="./img/08-azure-search-endpoint.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/07-azure-search-key.png" alt="drawing" style="width:600px;"/> \
+      <img src="./img/08-azure-search-endpoint.png" alt="drawing" style="width:600px;"/>
 
    - For `AZURE_SPEECH_REGION`, `AZURE_SPEECH_API_KEY`, the reference is as below: \
-      <img src="./img/09-azure-region.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/09-azure-region.png" alt="drawing" style="width:600px;"/>
 
    - For `TEXT_ANALYTICS_ENDPOINT` and `TEXT_ANALYTICS_KEY`, the reference is as below: \
-      <img src="./img/10-text-analytics.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/10-text-analytics.png" alt="drawing" style="width:600px;"/>
 
    - For `BLOB_SAS_URL`, the reference is as below: \
-      <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/>
 
    - For `SQL_DB_SERVER`, `SQL_DB_USER`, and `SQL_DB_NAME`, the reference is as below: \
-      <img src="./img/11-sql-db.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/11-sql-db.png" alt="drawing" style="width:600px;"/>
 
    - For `BING_KEY` and `BING_SEARCH_URL`, the reference is as below: \
-      <img src="./img/12-bing.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/12-bing.png" alt="drawing" style="width:600px;"/>
 
 5. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
    - When you are testing connection to the SQL Server, if you receive error message saying that *Azure Active Directory only authentication is enabled. Please contact your system administrator*, please follow the instrucion below: \
-      <img src="./img/13-enable-sql-authentication.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/13-enable-sql-authentication.png" alt="drawing" style="width:600px;"/>
 
    - When you are testing connection to the SQL Server, if you receive error message saying that *Cannot open server 'YOUR_SERVER' requested by the login. Client with IP address 'YOUR_IP_ADDRESS' is not allowed to access the server*, please follow the instrucion below: \
-      <img src="./img/14-add-ip-address.png" alt="drawing" style="width:400px;"/>
+      <img src="./img/14-add-ip-address.png" alt="drawing" style="width:600px;"/>
 
 6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that. \
-    <img src="./img/18-change-region.png" alt="drawing" style="width:400px;"/>
+    <img src="./img/18-change-region.png" alt="drawing" style="width:600px;"/>
 
 7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks.
 
     If you are using **Visual Studio Code**, you can execute the following steps:
     - Install the Azure Static Web Apps and Azure Functions extensions
     - Open Azure extension, select your subscription, and right-click on Static Web Apps extension folder, select **Create Static Web App ... (Advanced)** \
-        <img src="./img/15-create-static-web-app.png" alt="drawing" style="width:400px;"/>
+        <img src="./img/15-create-static-web-app.png" alt="drawing" style="width:600px;"/>
     - Create Static Web App with the following parameters:  
 
       | Parameter                 | Description                                                      |
@@ -171,11 +171,11 @@ This solution accelerator can be used to deploy an application that offers an in
       ```
 
 8. In the VSCode Static Web Apps extension, navigate to **Application Settings** of your app and right-click **Upload Local Settings**. This will populate the settings from `local.settings.json` to the web app. You can verify if the environment variables are correct via Azure portal.\
-    <img src="./img/16-upload-local-settings.png" alt="drawing" style="width:400px;"/> \
-    <img src="./img/19-environment-variables.png" alt="drawing" style="width:400px;"/>
+    <img src="./img/16-upload-local-settings.png" alt="drawing" style="width:600px;"/> \
+    <img src="./img/19-environment-variables.png" alt="drawing" style="width:600px;"/>
 
 9. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app. \
-    <img src="./img/17-browse-site.png" alt="drawing" style="width:400px;"/>
+    <img src="./img/17-browse-site.png" alt="drawing" style="width:600px;"/>
 
 ## Notes on running the solution locally
 
@@ -198,7 +198,7 @@ This solution accelerator can be used to deploy an application that offers an in
         ```bash
         swa start src --api-location api
         ``` \
-        <img src="./img/20-run-locally.png" alt="drawing" style="width:400px;"/>
+        <img src="./img/20-run-locally.png" alt="drawing" style="width:600px;"/>
 
 
 ## Hints on debugging
@@ -207,5 +207,5 @@ This solution accelerator can be used to deploy an application that offers an in
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
 - When you see an error message saying *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)*, you may try cleaning your cache to fix this issue.
 - You can open console to further digest your bugs. \
-  <img src="./img/22-open-debug-panel.png" alt="drawing" style="width:400px;"/> \
-  <img src="./img/23-debug-panel.png" alt="drawing" style="width:400px;"/>
+  <img src="./img/22-open-debug-panel.png" alt="drawing" style="width:600px;"/> \
+  <img src="./img/23-debug-panel.png" alt="drawing" style="width:600px;"/>
