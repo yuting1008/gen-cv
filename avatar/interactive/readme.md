@@ -11,9 +11,9 @@ This solution accelerator can be used to deploy an application that offers an in
     - [Step 2. Set Up Configurations and Upload Data](#step-2-set-up-configurations-and-upload-data)
     - [Step 3. Deploy Static Web App](#step-3-deploy-static-web-app)
 
-1. **[Notes on Running the Solution Locally](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
+1. **[Notes on Running the Solution Locally](#notes-on-running-the-solution-locally-在本地運行解決方案的注意事項)**
 
-1. **[Hints on Debugging](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model-in-azure-ai-studio)**
+1. **[Hints on Debugging](#hints-on-debugging)**
 
 ## Getting Started
 
