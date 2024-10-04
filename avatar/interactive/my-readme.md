@@ -118,9 +118,8 @@ This solution accelerator can be used to deploy an application that offers an in
       | Framework                 | Custom                                                           |
       | Application code location | avatar/interactive/src                                           |
       | Build output location     | (Leave blank)                                                    |      
-    
-      It will create an workflow to deploy from GitHub Action to Static Web App without config yet. Here is my sample workflow config for your reference:
-
+    - You may encounter a workflow config error regarding the API directory while deploying. To address this issue, change the API directory to the correct format. Below is my sample workflow config for your reference: \
+      <img src="./img/21-delpoy-error.png" alt="drawing" style="width:600px;"/> 
       ```
       name: Azure Static Web Apps CI/CD
 
