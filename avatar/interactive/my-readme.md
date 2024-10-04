@@ -21,9 +21,9 @@ This solution accelerator can be used to deploy an application that offers an in
      **How to creat a Azure SQL database server with the settings** \
      If you do not have SQL database server withthe above settings, please refer to the following steps to creat one. 
 
-     <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:400px;"/> \
-     <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:400px;"/> \
-     <img src="./img/03-set-networking.png" alt="drawing" style="width:400px;"/>
+     <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:600px;"/> \
+     <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:600px;"/> \
+     <img src="./img/03-set-networking.png" alt="drawing" style="width:600px;"/>
      
    - Azure Speech Services
      - Only available in the following regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
@@ -99,7 +99,7 @@ This solution accelerator can be used to deploy an application that offers an in
       <img src="./img/14-add-ip-address.png" alt="drawing" style="width:400px;"/>
 
 6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that. \
-  <img src="./img/18-change-region.png" alt="drawing" style="width:400px;"/>
+    <img src="./img/18-change-region.png" alt="drawing" style="width:400px;"/>
 
 7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks.
 
@@ -183,21 +183,21 @@ This solution accelerator can be used to deploy an application that offers an in
    - You can install it via this [link](https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?).
 - The solution has been tested with Node version 18.0.0.
 - To run the solution locally, please follow the instructions below:
-  1. We use Use the Static Web Apps CLI to run the solution. You can install it via npm. Details can be found [here](https://azure.github.io/static-web-apps-cli/docs/use/install/).
+  - We use Use the Static Web Apps CLI to run the solution. You can install it via npm. Details can be found [here](https://azure.github.io/static-web-apps-cli/docs/use/install/).
       ```
       npm install -g @azure/static-web-apps-cli
       swa --version
       ```
-  2. Create your Python environment and install the necessary dependencies. For our development, we utilized Conda and the running environment is Python 3.11. You can do the same with these commands:
+  - Create your Python environment and install the necessary dependencies. For our development, we utilized Conda and the running environment is Python 3.11. You can do the same with these commands:
       ```bash
       conda create -n avatar python=3.11
       conda activate avatar
       pip install -r avatar\interactive\api\requirements.txt
       ```
-  3. After navigating in the terminal to `avatar/interactive`, the following command can be used to run the solution. Once succeed, you will see the output on console.
+  - After navigating in the terminal to `avatar/interactive`, the following command can be used to run the solution. Once succeed, you will see the output on console.
         ```bash
         swa start src --api-location api
-        ```
+        ``` \
         <img src="./img/20-run-locally.png" alt="drawing" style="width:400px;"/>
 
 
@@ -206,6 +206,6 @@ This solution accelerator can be used to deploy an application that offers an in
 - The login screen is currently non-functional. If you click on 'login' without entering any information, you will be redirected to the main page.
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
 - When you see an error message saying *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)*, you may try cleaning your cache to fix this issue.
-- You can open console to further digest your bugs.
-  <img src="./img/22-open-debug-panel.png" alt="drawing" style="width:400px;"/>
+- You can open console to further digest your bugs. \
+  <img src="./img/22-open-debug-panel.png" alt="drawing" style="width:400px;"/> \
   <img src="./img/23-debug-panel.png" alt="drawing" style="width:400px;"/>
