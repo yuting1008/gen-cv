@@ -19,8 +19,7 @@ This solution accelerator can be used to deploy an application that offers an in
      - Networking: Allow Azure services and resources to access this server enabled
 
      **How to creat a Azure SQL database server with the settings** \
-     If you do not have SQL database server withthe above settings, please refer to the following steps to creat one. 
-
+     If you do not have a SQL server with the above settings, please refer to the following steps to creat one. 
      <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:600px;"/> \
      <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:600px;"/> \
      <img src="./img/03-set-networking.png" alt="drawing" style="width:600px;"/>
@@ -33,7 +32,6 @@ This solution accelerator can be used to deploy an application that offers an in
    - Bing Search service
 
 3. Upload the images in the `product-images` directory to a blob container in the Storage Account. Generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application. 
-
     <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/> \
     <img src="./SAS-dialog.png" alt="drawing" style="width:600px;"/>
 
@@ -92,18 +90,16 @@ This solution accelerator can be used to deploy an application that offers an in
       <img src="./img/12-bing.png" alt="drawing" style="width:600px;"/>
 
 5. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
-   - When you are testing connection to the SQL Server, if you receive error message saying that *Azure Active Directory only authentication is enabled. Please contact your system administrator*, please follow the instrucion below: \
+   - When you are testing connection to the SQL Server, if you receive error message saying that *Azure Active Directory only authentication is enabled. Please contact your system administrator*, please disable Microsoft Entra authentication only in your SQL server. \
       <img src="./img/13-enable-sql-authentication.png" alt="drawing" style="width:600px;"/>
 
-   - When you are testing connection to the SQL Server, if you receive error message saying that *Cannot open server 'YOUR_SERVER' requested by the login. Client with IP address 'YOUR_IP_ADDRESS' is not allowed to access the server*, please follow the instrucion below: \
+   - When you are testing connection to the SQL Server, if you receive error message saying that *Cannot open server 'YOUR_SERVER' requested by the login. Client with IP address 'YOUR_IP_ADDRESS' is not allowed to access the server*, please add your current IP address to your SQL server. \
       <img src="./img/14-add-ip-address.png" alt="drawing" style="width:600px;"/>
 
 6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that. \
     <img src="./img/18-change-region.png" alt="drawing" style="width:600px;"/>
 
-7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks.
-
-    If you are using **Visual Studio Code**, you can execute the following steps:
+7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks. If you are using **Visual Studio Code**, you can execute the following steps:
     - Install the Azure Static Web Apps and Azure Functions extensions
     - Open Azure extension, select your subscription, and right-click on Static Web Apps extension folder, select **Create Static Web App ... (Advanced)** \
         <img src="./img/15-create-static-web-app.png" alt="drawing" style="width:600px;"/>
@@ -178,8 +174,7 @@ This solution accelerator can be used to deploy an application that offers an in
 
 ## Notes on running the solution locally
 
-- ODBC Driver 17 for SQL Server is required to run the solution locally.
-   - You can install it via this [link](https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?).
+- ODBC Driver 17 for SQL Server is required to run the solution locally. You can install it via this [link](https://learn.microsoft.com/zh-tw/sql/connect/odbc/download-odbc-driver-for-sql-server?).
 - The solution has been tested with Node version 18.0.0.
 - To run the solution locally, please follow the instructions below:
   - We use Use the Static Web Apps CLI to run the solution. You can install it via npm. Details can be found [here](https://azure.github.io/static-web-apps-cli/docs/use/install/).
@@ -202,7 +197,7 @@ This solution accelerator can be used to deploy an application that offers an in
 
 ## Hints on debugging
 
-- The login screen is currently non-functional. You can click on 'login' without entering any information and you will be redirected to the main page.
+- The login screen is currently non-functional. You can click on ``login`` without entering any information and you will be redirected to the main page.
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
 - When you see an error message saying *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)*, you may try cleaning your cache to fix this issue.
 - You can open console to further deal with your bugs. \
