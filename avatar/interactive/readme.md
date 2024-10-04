@@ -52,12 +52,12 @@ This solution accelerator can be used to deploy an application that offers an in
      </br> Azure Blob 儲存帳戶
 
 ### Step 2. Set Up Configurations and Upload Data
-3. Upload the images in the `product-images` directory to a blob container in the Storage Account. Right click the blob container to generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
+1. Upload the images in the `product-images` directory to a blob container in the Storage Account. Right click the blob container to generate a **SAS URL** for the blob storage container. Set the expiry date according to the planned lifecycle of your application.
 </br> 將 `product-images` 目錄中的圖像上傳到存儲帳戶中的 blob 容器。右擊 blob 儲存容器為 blob 儲存容器生成 SAS URL。根據應用程式的生命週期規劃設定到期時間。</br>
     <img src="./img/04-generate-sas-uri.png" alt="drawing" style="width:600px;"/> \
     <img src="./SAS-dialog.png" alt="drawing" style="width:400px;"/>
     
-4. Create a file named `local.settings.json` in the `api` directory of the repository. Make sure to add the following variables to `local.settings.json`. The `AzureWebJobsStorage` variable can be left empty for development purposes.
+2. Create a file named `local.settings.json` in the `api` directory of the repository. Make sure to add the following variables to `local.settings.json`. The `AzureWebJobsStorage` variable can be left empty for development purposes.
 </br> 在倉庫的 api 目錄中創建一個名為 `local.settings.json` 的檔。確保將以下變數添加到`local.settings.json`。出於開發目的，可以將 `AzureWebJobsStorage` 變數留空。
     ```
     {
@@ -108,7 +108,7 @@ This solution accelerator can be used to deploy an application that offers an in
   - For ``SQL_DB_SERVER`` and ``SQL_DB_USER``, please reference here
     ![image](https://github.com/user-attachments/assets/4ad1c1b3-a349-463f-894a-6a5d8d987155)
 
-5. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
+3. Run the cells in the `create-index-and-database.ipynb` notebook to upload the product data to Azure AI Search and the Azure SQL Database.
 </br> 運行 `create-index-and-database.ipynb` 筆記本中的儲存格，將產品數據上傳到 Azure AI 搜索和 Azure SQL 資料庫。
    - When you are testing connection to the SQL Server, if you receive error message saying that *Azure Active Directory only authentication is enabled. Please contact your system administrator*, please disable Microsoft Entra authentication only in your SQL server.
      </br> 當您嘗試連接到 SQL Server 時，如果收到錯誤消息顯示 *Azure Active Directory only authentication is enabled. Please contact your system administrator*，請在您的 SQL Server 中停用僅限 Microsoft Entra 身份驗證。
@@ -119,10 +119,10 @@ This solution accelerator can be used to deploy an application that offers an in
      <img src="./img/14-add-ip-address.png" alt="drawing" style="width:600px;"/>
 
 ### Step 3. Deploy Static Web App
-6. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that.
+1. In case you are using an Azure Speech Services instance in a region different from `westeurope`, update line 17 of `main.js` in the `src/js` folder to reflect that.
    </br> 如果你在與 `westeurope` 不同的區域中使用 Azure 語音服務實例，請更新 `src/js` 資料夾中的 `main.js` 的第 17 行以反映這一點。
    <img src="./img/18-change-region.png" alt="drawing" style="width:600px;"/>
-7. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks. If you are using **Visual Studio Code**, you can execute the following steps:
+2. This application can be deployed using Azure Static Web Apps. Refer to this [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to learn more. This application is using no front-end frameworks. If you are using **Visual Studio Code**, you can execute the following steps:
 </br> 此應用程式可以使用 Azure Static Web Apps 進行部署。請參閱此快速入門以瞭解更多資訊。此應用程式未使用前端框架。 如果您使用的是 Visual Studio Code，則可以執行以下步驟：</br> 
     - Install  the Azure Static Web Apps and Azure Functions extensions.
       </br> 安裝 Azure Static Web Apps 和 Azure Functions 擴展。
@@ -192,12 +192,12 @@ This solution accelerator can be used to deploy an application that offers an in
                   action: "close"
         ```
         ![image](https://github.com/user-attachments/assets/90c76ce1-fac8-4dd7-86fa-32d367bee575)
-8.  In the VSCode Static Web Apps extension, navigate to **Application Settings** of your app and right-click **Upload Local Settings**. This will populate the settings from `local.settings.json` to the web app. You can verify if the environment variables are correct via Azure portal.
+3.  In the VSCode Static Web Apps extension, navigate to **Application Settings** of your app and right-click **Upload Local Settings**. This will populate the settings from `local.settings.json` to the web app. You can verify if the environment variables are correct via Azure portal.
     </br> 在 VSCode 的 Static Web Apps 擴展中，前往「應用程式設置」，然後在「上傳本地設置」上點擊右鍵兩次。這會將 `local.settings.json` 文件中的設置上傳至 Web 應用程式。從 VS Code 上傳本地設置後，您可以在 Azure 上看到 Static Web Apps Config。
     ![image](https://github.com/user-attachments/assets/e0c3190a-d1eb-4f7d-8397-fbeae08bf372)
     ![image](https://github.com/user-attachments/assets/8bfdfc69-b134-49fd-aa41-6cdb59fe2175)
 
-9. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app
+4. In the VSCode Static Web Apps extension, right-click on your app name and select **Browse site** to use the app
    </br> 在 VSCode Static Web Apps 擴展中，右鍵按兩下應用名稱，然後選擇「瀏覽網站」以使用此應用。
    <img src="./img/17-browse-site.png" alt="drawing" style="width:600px;"/>
    
