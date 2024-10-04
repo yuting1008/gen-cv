@@ -24,10 +24,10 @@ This solution accelerator can be used to deploy an application that offers an in
        </br> 身份驗證：已啟用 SQL 和 Microsoft Entra 身份驗證
      - Networking: Allow Azure services and resources to access this server enabled
        </br> 網路：允許 Azure 服務和資源存取此伺服器已啟用
-       
-     <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:600px;"/> \
-     <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:600px;"/> \
-     <img src="./img/03-set-networking.png" alt="drawing" style="width:600px;"/>
+     - You can refer to the instructions below to create SQL Database and SQL Server:
+         <img src="./img/01-create-sql-database-server.png" alt="drawing" style="width:800px;"/> \
+         <img src="./img/02-select-authentication-method.png" alt="drawing" style="width:600px;"/> \
+         <img src="./img/03-set-networking.png" alt="drawing" style="width:600px;"/>
      
    - Azure Speech Service
      - Note: Avatar only available in these regions: West US 2, West Europe, Southeast Asia, South Central US, Sweden Central, North Europe
@@ -221,7 +221,7 @@ This solution accelerator can be used to deploy an application that offers an in
 - The login screen is currently non-functional. If you click on 'login' without entering any information, you will be redirected to the main page.
   </br> 登錄螢幕目前無法正常工作。如果您點擊「登錄」而不輸入任何資訊，您將被重定向到主頁。
 - If the avatar is not loading on the main page, refresh the web page with the console open. This will show the error message.
-  </br> 如果頭像未在主頁上載入，請在主頁打開的情況下刷新網頁。這將顯示錯誤消息。
+  </br> 如果 avatar 未在主頁上載入，請在主頁打開的情況下刷新網頁。這將顯示錯誤消息。
 - When you see an error message saying *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)*, you may try cleaning your cache to fix this issue.
   </br> 當您看到錯誤訊息顯示 *Failed to load resource: the server responded with a status of 404 (/favicon.ico:1)* 時，請嘗試清除快取以修正此問題。
 - You can open console to further deal with your bugs.
